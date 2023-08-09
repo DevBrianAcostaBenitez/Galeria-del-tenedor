@@ -9,11 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-
 public class UsersService {
 
+    private final UsersRepository usersRepository;
+
     @Autowired
-    UsersRepository usersRepository;
+    public UsersService(UsersRepository usersRepository) {
+        this.usersRepository = usersRepository;
+    }
 
     public ArrayList<Users> getUsers() {
         return (ArrayList<Users>) usersRepository.findAll();
@@ -27,7 +30,6 @@ public class UsersService {
         return usersRepository.findById(id);
     }
 
-
     public Users updateById(Users request, Long id) {
         if (usersRepository.existsById(id)) {
             Users user = usersRepository.findById(id).get();
@@ -39,35 +41,13 @@ public class UsersService {
         }
     }
 
-
-
-    /*public Users updateById(Users request, Long id) {
-        Users user = usersRepository.findById(id).get();
-
-        user.setUsername(request.getUsername());
-        user.setPassword(request.getPassword());
-        user.setId(request.getId());
-
-        return user;
-    }*/
-
-
     public Boolean deleteUser(Long id) {
-        try {
+        if ( usersRepository.existsById(id)) {
             usersRepository.deleteById(id);
             return true;
-        } catch (Exception e) {
-            System.out.println("Error al eliminar el usuario con ID: " + id);
-            e.printStackTrace();
+        } else {
+            System.out.println("Error trying to delete the user with ID: " + id);
             return false;
         }
     }
-    /**public Boolean deleteUser(Long id) {
-        try {
-            usersRepository.deleteById(id);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }*/
 }

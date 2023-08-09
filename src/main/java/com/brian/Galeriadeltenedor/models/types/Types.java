@@ -3,7 +3,7 @@ package com.brian.Galeriadeltenedor.models.types;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "meals")
+@Table(name = "types")
 public class Types {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

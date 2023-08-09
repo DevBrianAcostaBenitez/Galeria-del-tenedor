@@ -1,5 +1,5 @@
 package com.brian.Galeriadeltenedor.models.meals;
-
+import com.brian.Galeriadeltenedor.models.types.Types;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,22 +12,28 @@ public class Meals {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "type", nullable = false)
-    private String type;
+    @ManyToOne
+    @JoinColumn(name = "type")
+    private Types type;
 
-    @Column(name = "ingredients", nullable = false)
+    @Column(name = "ingredients", nullable = false,columnDefinition = "LONGTEXT")
     private String ingredients;
 
-    @Column(name = "recipe", nullable = false)
+    @Column(name = "recipe", nullable = false,  columnDefinition = "LONGTEXT")
     private String recipe;
+
+   @Column(name = "imgUrl", nullable = false)
+    private String imgUrl;
+
     public Meals() {
     }
 
-    public Meals(String name, String type,String ingredients, String recipe) {
+    public Meals(String name, Types type, String ingredients, String recipe,  String  imgUrl) {
         this.name = name;
         this.type = type;
         this.ingredients = ingredients;
         this.recipe = recipe;
+        this.imgUrl = imgUrl;
     }
 
     public Long getId() {
@@ -46,6 +52,13 @@ public class Meals {
         this.name = name;
     }
 
+    public Types getType() {
+        return type;
+    }
+
+    public void setType(Types type) {
+        this.type = type;
+    }
     public String getIngredients() {
         return ingredients;
     }
@@ -54,10 +67,18 @@ public class Meals {
         this.ingredients = ingredients;
     }
      public String getRecipe() {
-        return ingredients;
+        return recipe;
     }
 
     public void setRecipe(String recipe) {
         this.recipe = recipe;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String  imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }
