@@ -1,8 +1,10 @@
 .header {
+    display:flex;
     background-color:#E9E973;
     width:100%;
     height:20%;
-
+    border-bottom: 1px solid #000000;
+    top:0;
     .icon{
         color:#f1c900;
         font-size: 3em;
@@ -20,8 +22,8 @@
 }
 
 #nav{
-    background-color: #f6f648;
-
+    background-color: #f6f648;  
+    border:solid;
 }
 .side {
     margin: 5px;

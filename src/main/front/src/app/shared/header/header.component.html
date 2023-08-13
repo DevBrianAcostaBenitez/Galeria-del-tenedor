@@ -1,39 +1,38 @@
-<div>
-    <div class="d-flex justify-content-between header">
-      <div class="d-flex">
-        <i class="bi bi-list mx-3 icon" (click)="toggleCategoryDropdown()"></i>
-        <h1 class="mx-3 mt-2 text" style="text-decoration: underline">La Galeria del Tenedor</h1>
-      </div>
+<header>
+  <div>
+      <div class="d-flex justify-content-between header">
+        <div class="d-flex">
+          <i class="bi bi-list mx-3 icon" (click)="toggleCategoryDropdown()"></i>
+          <h1 class="mx-3 mt-2 text" style="text-decoration: underline">La Galeria del Tenedor</h1>
+        </div>
+      
+  </div>
     
-    </div>
-  
-    <div id="nav" *ngIf="CategoryDropdown" class="dropdown-content position-absolute option-list" style= "left: 0.5%;">
-      <div class="category-item">
-        <img class="side" src="../../../assets/img/Carne.jpg" alt="Carne">
-        <span class="category-text">Carne</span>
+      <div id="nav" *ngIf="CategoryDropdown" class="dropdown-content position-absolute option-list" style= "left: 0.5%;">
+        <div class="category-item">
+          <img class="side" src="../../../assets/img/Carne.jpg" alt="Carne">
+          <span class="category-text">Carne</span>
+        </div>
+        <div class="category-item">
+          <img class="side" src="../../../assets/img/Verdura.jpg" alt="Verdura">
+          <span class="category-text">Verdura</span>
+        </div>
+        <div class="category-item">
+          <img class="side" src="../../../assets/img/Pescado.jpg" alt="Pescado">
+          <span class="category-text">Pescado</span>
+        </div>
+        <div class="category-item">
+          <img class="side" src="../../../assets/img/Pasta.jpg" alt="Pasta">
+          <span class="category-text">Pasta</span>
+        </div>
+        <div class="category-item">
+          <img class="side" src="../../../assets/img/Postres.jpg" alt="Postres">
+          <span class="category-text">Postres</span>
+        </div>
+        <div class="category-item">
+          <img class="side" src="../../../assets/img/mix.jpg" alt="Postres">
+          <span class="category-text">mix</span>
+        </div>
       </div>
-      <div class="category-item">
-        <img class="side" src="../../../assets/img/Verdura.jpg" alt="Verdura">
-        <span class="category-text">Verdura</span>
-      </div>
-      <div class="category-item">
-        <img class="side" src="../../../assets/img/Pescado.jpg" alt="Pescado">
-        <span class="category-text">Pescado</span>
-      </div>
-      <div class="category-item">
-        <img class="side" src="../../../assets/img/Pasta.jpg" alt="Pasta">
-        <span class="category-text">Pasta</span>
-      </div>
-      <div class="category-item">
-        <img class="side" src="../../../assets/img/Postres.jpg" alt="Postres">
-        <span class="category-text">Postres</span>
-      </div>
-      <div class="category-item">
-        <img class="side" src="../../../assets/img/mix.jpg" alt="Postres">
-        <span class="category-text">mix</span>
-      </div>
-    </div>
-</div>
-    
-
-  
+  </div>
+</header>
