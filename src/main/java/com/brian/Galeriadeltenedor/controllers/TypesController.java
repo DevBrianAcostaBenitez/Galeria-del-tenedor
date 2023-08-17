@@ -7,6 +7,7 @@ import com.brian.Galeriadeltenedor.models.types.Types;
 import com.brian.Galeriadeltenedor.services.TypesService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,5 +28,14 @@ public class TypesController {
     @GetMapping
     public ArrayList<Types> getTypes() {
         return this.typesService.getTypes();
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Types> getTypeById(@PathVariable Long id) {
+        Optional<Types> type = this.typesService.getById(id);
+        if (type.isPresent()) {
+            return new ResponseEntity<>(type.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

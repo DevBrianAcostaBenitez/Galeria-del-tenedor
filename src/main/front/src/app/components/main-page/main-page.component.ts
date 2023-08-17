@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MealsService } from '../../services/Meals.service'; 
 import { TypeService } from '../../services/Types.service'; 
-import { Meals } from '../../models/meals.model'; 
+import { Meals } from '../../models/Meals.model'; 
 import { Types} from '../../models/Types.model'; 
 
 @Component({
@@ -21,10 +21,7 @@ export class MainPageComponent implements OnInit {
     console.log(this.meals)
     console.log(this.types)
   }
-  scroll(event: WheelEvent): void {
-    const container = event.currentTarget as HTMLElement;
-    container.scrollTop += event.deltaY;
-  }
+ 
   getMeals(): void {
     this.mealsService.getAllMeals().subscribe(
       meals => this.meals = meals,

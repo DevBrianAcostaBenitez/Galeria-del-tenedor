@@ -2,13 +2,15 @@ section{
     z-index: 0;
     height: 80vh;
     background-color:#FFFEDA;
-    overflow-y: auto;
-    overflow: hidden;
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
     .card-title{
         background-color: #FFFDC2;
         padding:10px;
         height:15vh;
-        border-radius: 25px;
+        border-radius: 15px;
     }
     img{
         width:100%;
@@ -19,3 +21,6 @@ section{
     }
 }
 
+section::-webkit-scrollbar {
+    display: none; 
+}

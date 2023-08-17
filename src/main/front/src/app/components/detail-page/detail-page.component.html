@@ -1,0 +1,14 @@
+<section>
+  <div class="row  m-3">
+    <div class="col-md-3 ">
+      <button class="button mb-3 px-5 py-2 rounded-pill border border-dark fw-bold" (click)="goToMainPage()">Volver</button>
+      <img [src]="'../../../assets/img/meals/' + meal?.imgUrl" alt="Meal Image" class="img-fluid mb-3">
+      <h5 class="fw-bolder">{{ meal?.name }}</h5>
+      <p><span class="fw-bold">Tipo: </span>{{ mealType?.name }}</p>
+      <p><span class="fw-bold">Ingredientes:</span>{{ meal?.ingredients }}</p>
+    </div>
+    <div class="col-md-8">
+      <p   class="text-center">{{ meal?.recipe }}</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+section{
+    z-index: 0;
+    height: 80vh;
+    background-color:#FFFEDA;
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+.button{
+        background-color: #F4F47B;
+}
+}
+section::-webkit-scrollbar {
+    display: none; 
+  }
