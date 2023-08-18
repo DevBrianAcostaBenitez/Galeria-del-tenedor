@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MealFilterService } from '../../../services/Meal_filter/meal-filter.service';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +9,28 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   CategoryDropdown: boolean = false;
-  userDropdown:  boolean = false;
-toggleCategoryDropdown() {
+  userDropdown: boolean = false;
+
+  constructor(
+    private mealFilterService: MealFilterService,
+    private router: Router
+  ) {}
+
+  onCategorySelected(category: string | null): void {
+    this.mealFilterService.setSelectedCategory(category);
+  }
+
+  toggleCategoryDropdown(): void {
     this.CategoryDropdown = !this.CategoryDropdown;
-}
+  }
 
-toggleUserDropdown() {
-  this.userDropdown = !this.userDropdown;
-}
-}
+  toggleUserDropdown(): void {
+    this.userDropdown = !this.userDropdown;
+  }
 
+  navigateToMainPageAndFilter(category: string | null): void {
+    this.router.navigate(['/']); 
+    this.onCategorySelected(category); 
+  }
+  
+}

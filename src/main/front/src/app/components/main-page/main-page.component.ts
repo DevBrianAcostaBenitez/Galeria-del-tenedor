@@ -1,38 +1,76 @@
-import { Component, OnInit } from '@angular/core';
-import { MealsService } from '../../services/Meals.service'; 
-import { TypeService } from '../../services/Types.service'; 
-import { Meals } from '../../models/Meals.model'; 
-import { Types} from '../../models/Types.model'; 
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd, Event } from '@angular/router';
+import { MealsService } from '../../services/Meals.service';
+import { Meals } from '../../models/Meals.model';
+import { MealFilterService } from '../../services/Meal_filter/meal-filter.service';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent implements OnInit, OnDestroy {
   meals: Meals[] = [];
-  types: Types[] = [];
+  filteredMeals: Meals[] = [];
+  selectedCategory: string | null = null;
+  private ngUnsubscribe = new Subject<void>();
 
-  constructor(private mealsService: MealsService, private typeService: TypeService) { }
+  constructor(
+    private mealsService: MealsService,
+    private mealFilterService: MealFilterService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.getMeals();
-    this.getTypes();
-    console.log(this.meals)
-    console.log(this.types)
-  }
- 
-  getMeals(): void {
-    this.mealsService.getAllMeals().subscribe(
-      meals => this.meals = meals,
-      error => console.error('Error fetching meals', error)
-    );
+    this.loadMeals();
+    this.subscribeToCategoryChanges();
+    this.subscribeToNavigationEnd();
   }
 
-  getTypes(): void {
-    this.typeService.getAllTypes().subscribe(
-      types => this.types = types,
-      error => console.error('Error fetching types', error)
-    );
+
+  ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
+
+  loadMeals(): void {
+    this.mealsService.getAllMeals().subscribe(meals => {
+      this.meals = meals;
+      this.applyFilter();
+    });
+  }
+
+  isMainPage(): boolean {
+    return this.router.url === '/main-page';
+  }
+
+  subscribeToCategoryChanges(): void {
+    this.mealFilterService.selectedCategory$
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(category => {
+        this.selectedCategory = category;
+        this.applyFilter();
+      });
+  }
+
+  subscribeToNavigationEnd(): void {
+    this.router.events
+      .pipe(
+        filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd),
+        takeUntil(this.ngUnsubscribe)
+      )
+      .subscribe((event: NavigationEnd) => {
+        if (this.isMainPage()) {
+          this.applyFilter();
+        }
+      });
+  }
+
+  applyFilter(): void {
+    this.filteredMeals = this.selectedCategory
+      ? this.meals.filter(meal => meal.type.name === this.selectedCategory)
+      : this.meals;
   }
 }

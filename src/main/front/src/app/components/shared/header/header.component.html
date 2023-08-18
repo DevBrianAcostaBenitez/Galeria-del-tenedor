@@ -1,38 +1,37 @@
 <header>
-  <div>
-      <div class="d-flex justify-content-between header">
-        <div class="d-flex">
-          <i class="bi bi-list mx-3 icon" (click)="toggleCategoryDropdown()"></i>
-          <h1 class="mx-3 mt-2 text" style="text-decoration: underline">La Galeria del Tenedor</h1>
-        </div>
-      
+  <div class="d-flex justify-content-between header">
+    <div class="d-flex">
+      <i class="bi bi-list mx-3 icon" (click)="toggleCategoryDropdown()"></i>
+      <h1 class="mx-3 mt-2 text" style="text-decoration: underline">La Galeria del Tenedor</h1>
+    </div>
   </div>
-    
-      <div id="nav" *ngIf="CategoryDropdown" class="dropdown-content position-absolute option-list" style= "left: 0.5%;">
-        <div class="category-item">
-          <img class="side " src="../../../assets/img/Carne.jpg" alt="Carne">
-          <span class="category-text m-3">Carne</span>
-        </div>
-        <div class="category-item">
-          <img class="side" src="../../../assets/img/Verdura.jpg" alt="Verdura">
-          <span class="category-text m-3">Verdura</span>
-        </div>
-        <div class="category-item">
-          <img class="side" src="../../../assets/img/Pescado.jpg" alt="Pescado">
-          <span class="category-text m-3">Pescado</span>
-        </div>
-        <div class="category-item">
-          <img class="side" src="../../../assets/img/Pasta.jpg" alt="Pasta">
-          <span class="category-text m-3">Pasta</span>
-        </div>
-        <div class="category-item">
-          <img class="side" src="../../../assets/img/Postres.jpg" alt="Postres">
-          <span class="category-text m-3">Postres</span>
-        </div>
-        <div class="category-item">
-          <img class="side" src="../../../assets/img/mix.jpg" alt="Postres">
-          <span class="category-text m-3">mix</span>
-        </div>
-      </div>
+  <div id="nav" *ngIf="CategoryDropdown" class="dropdown-content position-absolute option-list" style="left: 0.5%;">
+    <div class="category-item" (click)="navigateToMainPageAndFilter(null)">
+      <p class="category-text m-3  ">Todas las Comidas</p>
+    </div>
+    <div class="category-item" (click)="navigateToMainPageAndFilter('Carne')">
+      <img class="side" src="../../../assets/img/Carne.jpg" alt="Carne">
+      <p class="category-text m-3">Carne</p>
+    </div>
+    <div class="category-item" (click)="navigateToMainPageAndFilter('Verdura')">
+      <img class="side" src="../../../assets/img/Verdura.jpg" alt="Verdura">
+      <p class="category-text m-3">Verdura</p>
+    </div>
+    <div class="category-item" (click)="navigateToMainPageAndFilter('Pescado')">
+      <img class="side" src="../../../assets/img/Pescado.jpg" alt="Pescado">
+      <p class="category-text m-3">Pescado</p>
+    </div>
+    <div class="category-item" (click)="navigateToMainPageAndFilter('Pasta')">
+      <img class="side" src="../../../assets/img/Pasta.jpg" alt="Pasta">
+      <p class="category-text m-3">Pasta</p>
+    </div>
+    <div class="category-item" (click)="navigateToMainPageAndFilter('Postres')">
+      <img class="side" src="../../../assets/img/Postres.jpg" alt="Postres">
+      <p class="category-text m-3">Postres</p>
+    </div>
+    <div class="category-item" (click)="navigateToMainPageAndFilter('Mix')">
+      <img class="side" src="../../../assets/img/mix.jpg" alt="Mix">
+      <p class="category-text m-3">Mix</p>
+    </div>
   </div>
 </header>
