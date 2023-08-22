@@ -13,7 +13,7 @@ import { Types} from '../../models/Types.model';
 export class DetailPageComponent implements OnInit {
   meal: Meals | undefined;
   mealType: Types | undefined;
-
+  fromRoute: any = {};
   constructor(
     private route: ActivatedRoute,
     private router: Router, 
@@ -22,6 +22,8 @@ export class DetailPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    const routeData = this.route.snapshot.data;
+    this.fromRoute =  routeData['fromRoute'] || '';
     this.route.paramMap.subscribe(params => {
       const idParam = params.get('id');
   
@@ -52,6 +54,10 @@ export class DetailPageComponent implements OnInit {
     });
   }
   goToMainPage(): void {
+    if (this.fromRoute === 'admin') {
+      this.router.navigate(['/admin']); // Redirige a la página de admin si viene de 'admin-detail/:id'
+    } else {
     this.router.navigate(['']);
+    }
   }
 }

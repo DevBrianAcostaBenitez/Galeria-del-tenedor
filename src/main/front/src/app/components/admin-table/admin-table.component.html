@@ -1,0 +1,37 @@
+<section>
+    <div class="container">
+        <table class="m-3 table table-bordered">
+            <thead>
+                <tr>
+                    <th class="col">Nombre</th>
+                    <th class="col">Tipo</th>
+                    <th class="col-6">Ingredientes</th>
+                    <th class="col img-field">Imagen</th>
+                    <th class="col px-5">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let meal of meals">
+                    <td class="col">{{ meal.name }}</td>
+                    <td class="col">{{ meal.type.name }}</td>
+                    <td class="col-6">{{ meal.ingredients }}</td>
+                    <td class="col img-field">
+                        <img [src]="'../../../assets/img/meals/' + meal?.imgUrl" alt="Meal Image" class="img-fluid w-100 h-100">
+                    </td>
+                    <td class="col-2">
+                        <a [routerLink]="['/admin-detail', meal.id]" title="Ver datos" class="px-1">
+                            <i class="bi bi-eye" style="font-size: 1.5rem;"></i>
+                        </a>
+                        
+                        <a href="#" title="Editar" class="px-1">
+                            <i class="bi bi-pencil" style="font-size: 1.5rem;"></i>
+                        </a>
+                        <a href="#" title="Eliminar" class="px-1">
+                            <i class="bi bi-trash" style="font-size: 1.5rem;"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

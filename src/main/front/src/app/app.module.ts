@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { DetailPageComponent } from './components/detail-page/detail-page.component';
+import { AdminTableComponent } from './components/admin-table/admin-table.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { DetailPageComponent } from './components/detail-page/detail-page.compon
     FooterComponent,
     MainPageComponent,
     DetailPageComponent,
+    AdminTableComponent,
   ],
   imports: [
     BrowserModule,
