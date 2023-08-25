@@ -1,10 +1,10 @@
 import { Types } from './Types.model';
 
 export interface Meals {
-  id: number;
+  id?: number;
   name: string;
-  type: Types;
+  type?: Types | null;
   ingredients: string;
   recipe: string;
-  imgUrl: string;
+  imgUrl?: string;
 }

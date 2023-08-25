@@ -41,23 +41,24 @@ export class DetailPageComponent implements OnInit {
   }
   
   private loadMealData(mealId: number): void {
-    this.mealsService.getMealById(mealId).subscribe(meal => {
-      this.meal = meal;
-      console.log(this.meal)
-      if (meal.type !== null && meal.type.id !== null) {
-        this.typeService.getTypeById(meal.type.id).subscribe(type => {
-          this.mealType = type!;
-
-        });
-        console.log(this.mealType)
-      }
-    });
-  }
-  goToMainPage(): void {
-    if (this.fromRoute === 'admin') {
-      this.router.navigate(['/admin']); // Redirige a la página de admin si viene de 'admin-detail/:id'
+    if (mealId !== undefined) {
+      this.mealsService.getMealById(mealId).subscribe(meal => {
+        this.meal = meal;
+        console.log(this.meal);
+        if (meal.type !== null && meal.type?.id !== undefined) {
+          this.typeService.getTypeById(meal.type?.id).subscribe(type => {
+            this.mealType = type!;
+            console.log(this.mealType);
+          });
+        }
+      });
     } else {
-    this.router.navigate(['']);
+      console.error('Invalid mealId');
     }
+  }
+  
+  goToMainPage(): void {
+    const route = (this.fromRoute === 'admin') ? '/admin' : '';
+    this.router.navigate([route]);
   }
 }

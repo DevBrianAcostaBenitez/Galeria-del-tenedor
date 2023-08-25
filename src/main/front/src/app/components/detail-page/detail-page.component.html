@@ -1,13 +1,13 @@
 <section>
   <div class="row  m-3">
     <div class="col-md-3 ">
-      <button class="button mb-3 px-5 py-2 rounded-pill border border-dark fw-bold" (click)="goToMainPage()">Volver</button>
-     <a *ngIf="fromRoute === 'admin'" href="#" title="Editar" class="px-3">
-        <i class="bi bi-pencil" style="font-size: 1.5rem;"></i>
-      </a>
-      <a *ngIf="fromRoute === 'admin'" title="Eliminar" class="px-3">
-        <i class="bi bi-trash" style="font-size: 1.5rem;"></i>
-     </a>
+      <button class="mb-3 px-5 py-2 rounded-pill border border-dark fw-bold" (click)="goToMainPage()">Volver</button>
+      <button  *ngIf="fromRoute === 'admin'" class=" px-2 mx-1 pb-1  rounded-pill border border-dark fw-bold" title="Editar">
+        <i class="bi bi-pencil" style="font-size: 1.4rem;"></i>
+      </button>
+      <button  *ngIf="fromRoute === 'admin'" class=" px-2 mx-1 pb-1 rounded-pill border border-dark fw-bold" title="Eliminar">
+        <i class="bi bi-trash" style="font-size: 1.4rem;"></i>
+      </button>
       <img [src]="'../../../assets/img/meals/' + meal?.imgUrl" alt="Meal Image" class="img-fluid mb-3">
       <h5 class="fw-bolder">{{ meal?.name }}</h5>
       <p><span class="fw-bold">Tipo: </span>{{ mealType?.name }}</p>

@@ -6,16 +6,15 @@ section{
     overflow-x: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none; 
-    .button{
+    button{
             background-color: #F4F47B;
     }
-
+    button:hover {
+        background-color: #f4dd89;
+    }
     i{
         color: #ffc03c;
-        border:solid;
-        border-color:#F4F47B;
-        border-radius:25px;
-        background-color:#f7f486;
+        background-color:#F4F47B
     }
 }
 section::-webkit-scrollbar {

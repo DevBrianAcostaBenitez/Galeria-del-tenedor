@@ -16,4 +16,5 @@ export class AdminTableComponent implements OnInit {
       this.meals = data;
     });
   }
+
 }

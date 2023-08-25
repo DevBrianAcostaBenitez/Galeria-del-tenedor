@@ -1,0 +1,47 @@
+<form>
+  <div class="row  m-3">
+    <div class="col-6">
+      <label for="name" class="form-label fs-3">Nombre</label>
+      <input type="text" name="name" id="name" class="form-control" [(ngModel)]="mealData.name" required>
+    </div>
+
+    <div class="col-6">
+      <label for="type" class="form-label fs-3">Tipo</label>
+      <select [(ngModel)]="selectedType" name="type" class="form-select" id="type" required>
+        <option value="" disabled selected>Seleccionar tipo</option>
+        <option *ngFor="let type of types" [ngValue]="type">{{ type.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row  m-3">
+    <div class="col-6">
+      <label for="ingredients" class="form-label fs-3">Ingredientes</label>
+      <textarea id="ingredients" name="ingredients" class="form-control" rows="10" [(ngModel)]="mealData.ingredients" required></textarea>
+    </div>
+
+    <div class="col-6">
+      <label for="recipe" class="form-label fs-3">Receta</label>
+      <textarea id="recipe" name="recipe" class="form-control"  rows="10" [(ngModel)]="mealData.recipe" required></textarea>
+    </div>
+  </div>
+
+  <div class="row  m-3">
+  <div class="col-6">
+    <div class="container d-flex justify-content-center align-items-center ">
+      <div class="form-group fs-3 d-flex flex-column">
+        <label class="mb-3 px-3">Imagen</label>
+        <input type="file" #imageInput (change)="onFileSelected($event)" style="display: none;">
+        <br>
+        <label for="image" style="cursor: pointer;"></label>
+        <img #selectedImage class="border border-success w-100 h-25" [src]="getObjectURL(image) || '../../../assets/img/formDefaultImage.png'" (click)="onFileImageClick()">
+      </div>
+    </div>
+  </div>
+  <div class="col-4 mx-3 my-4">
+  <button class="m-2  fs-4 p-3 rounded-pill border border-dark fw-bold"  type="button" (click)="addMeal()">Agregar</button>
+  <button [routerLink]="['/admin']" class="m-2  fs-4 p-3 rounded-pill border border-dark fw-bold"  type="button" >Cancelar</button>
+  </div>
+  </div>
+  
+</form>

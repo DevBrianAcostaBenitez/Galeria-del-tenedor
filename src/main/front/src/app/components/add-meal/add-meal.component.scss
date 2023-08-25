@@ -1,0 +1,15 @@
+form{
+    z-index: 0;
+    height: 80vh;
+    background-color:#fcfacf;
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+button{
+    background-color: #F4F47B;
+}
+button:hover {
+    background-color: #f4dd89;
+}

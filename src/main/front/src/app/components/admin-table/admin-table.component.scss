@@ -8,10 +8,7 @@ section{
     -ms-overflow-style: none; 
     i{
         color: #ffc05c;
-        border:solid;
-        border-color:#F4F47B;
-        border-radius:25px;
-        background-color:#f7f486;
+        background-color:#F4F47B;
     }
      th{
         background-color:#f9f8e4;
@@ -19,5 +16,13 @@ section{
     td{
         background-color:#f9f8e4;
     }
-  
+    button{
+        background-color: #F4F47B;
+    }
+    button:hover {
+        background-color: #f4dd89;
+        i{
+            background-color: #f4dd89;
+        }
+    }
 }

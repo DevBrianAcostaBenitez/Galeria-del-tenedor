@@ -8,7 +8,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { DetailPageComponent } from './components/detail-page/detail-page.component';
 import { AdminTableComponent } from './components/admin-table/admin-table.component';
-
+import { AddMealComponent } from './components/add-meal/add-meal.component';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,11 +18,14 @@ import { AdminTableComponent } from './components/admin-table/admin-table.compon
     MainPageComponent,
     DetailPageComponent,
     AdminTableComponent,
+    AddMealComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

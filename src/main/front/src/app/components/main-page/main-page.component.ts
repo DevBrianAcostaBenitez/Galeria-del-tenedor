@@ -70,7 +70,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
   applyFilter(): void {
     this.filteredMeals = this.selectedCategory
-      ? this.meals.filter(meal => meal.type.name === this.selectedCategory)
+      ? this.meals.filter(meal => meal.type?.name === this.selectedCategory)
       : this.meals;
   }
 }
