@@ -10,6 +10,7 @@ import { DetailPageComponent } from './components/detail-page/detail-page.compon
 import { AdminTableComponent } from './components/admin-table/admin-table.component';
 import { AddMealComponent } from './components/add-meal/add-meal.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { EditMealComponent } from './components/edit-meal/edit-meal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
     DetailPageComponent,
     AdminTableComponent,
     AddMealComponent,
+    EditMealComponent,
   ],
   imports: [
     BrowserModule,

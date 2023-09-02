@@ -38,8 +38,8 @@ public class MealsController {
     public ResponseEntity<Meals> getMealById(@PathVariable Long id) {
         Optional<Meals> optionalMeal = mealsService.getMealById(id);
         if (optionalMeal.isPresent()) {
-            Meals animal = optionalMeal.get();
-            return ResponseEntity.ok(animal);
+            Meals  meal = optionalMeal.get();
+            return ResponseEntity.ok(meal);
         } else {
             return ResponseEntity.notFound().build();
         }
@@ -52,9 +52,9 @@ public class MealsController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Meals> updateMealById(@PathVariable Long id, @RequestBody Meals updatedAnimal) {
-        Meals animal = mealsService.updateMealById(id, updatedAnimal);
-        return ResponseEntity.ok(animal);
+    public ResponseEntity<Meals> updateMealById(@PathVariable Long id, @RequestBody Meals updatedMeal) {
+        Meals meal = mealsService.updateMealById(id, updatedMeal);
+        return ResponseEntity.ok(meal);
     }
 
     @DeleteMapping("/{id}")

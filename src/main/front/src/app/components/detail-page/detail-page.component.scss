@@ -7,14 +7,27 @@ section{
     scrollbar-width: none;
     -ms-overflow-style: none; 
     button{
-            background-color: #F4F47B;
+        background-color: #F4F47B;
     }
     button:hover {
         background-color: #f4dd89;
+        i{
+            background-color: #f4dd89;
+        }
     }
-    i{
-        color: #ffc03c;
-        background-color:#F4F47B
+   
+    .delete{
+        background-color: #f47f7b;
+        i{
+            background-color: #f47f7b;
+        }
+    }
+   
+    .delete:hover{
+        background-color: #f35e58;
+        i{
+            background-color: #f35e58;
+        }
     }
 }
 section::-webkit-scrollbar {

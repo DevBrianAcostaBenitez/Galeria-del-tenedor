@@ -40,6 +40,7 @@ public class MealsService {
             existingMeal.setType(updatedMeal.getType());
             existingMeal.setIngredients(updatedMeal.getIngredients());
             existingMeal.setRecipe(updatedMeal.getRecipe());
+            existingMeal.setImgUrl(updatedMeal.getImgUrl());
             return mealsRepository.save(existingMeal);
         } else {
             throw new RuntimeException("Meal not found with id: " + id);

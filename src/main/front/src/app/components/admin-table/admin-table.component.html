@@ -23,10 +23,10 @@
                         <button [routerLink]="['/admin-detail', meal.id]" title="Ver datos" class="px-2 mx-1 pb-1 rounded-pill border border-dark fw-bold">
                             <i class="bi bi-eye" style="font-size: 1.5rem;"></i>
                           </button>
-                          <button class="px-2 mx-1 pb-1 rounded-pill border border-dark fw-bold" title="Editar">
+                          <button [routerLink]="['/admin/editMeal', meal.id]" title="Editar" class="px-2 mx-1 pb-1 rounded-pill border border-dark fw-bold ">
                             <i class="bi bi-pencil" style="font-size: 1.5rem;"></i>
-                          </button>
-                          <button class="px-2 mx-1 pb-1 rounded-pill border border-dark fw-bold" title="Eliminar">
+                          </button>       
+                          <button class="px-2 mx-1 pb-1 rounded-pill border border-dark fw-bold delete" title="Eliminar">
                             <i class="bi bi-trash" style="font-size: 1.5rem;"></i>
                           </button>
                     </td>

@@ -2,10 +2,10 @@
   <div class="row  m-3">
     <div class="col-md-3 ">
       <button class="mb-3 px-5 py-2 rounded-pill border border-dark fw-bold" (click)="goToMainPage()">Volver</button>
-      <button  *ngIf="fromRoute === 'admin'" class=" px-2 mx-1 pb-1  rounded-pill border border-dark fw-bold" title="Editar">
+      <button [routerLink]="['/admin/editMeal', meal?.id]"  *ngIf="fromRoute === 'admin'" class=" px-2 mx-1 pb-1  rounded-pill border border-dark fw-bold" title="Editar">
         <i class="bi bi-pencil" style="font-size: 1.4rem;"></i>
       </button>
-      <button  *ngIf="fromRoute === 'admin'" class=" px-2 mx-1 pb-1 rounded-pill border border-dark fw-bold" title="Eliminar">
+      <button  *ngIf="fromRoute === 'admin'" class=" px-2 mx-1 pb-1 rounded-pill border border-dark fw-bold delete" title="Eliminar">
         <i class="bi bi-trash" style="font-size: 1.4rem;"></i>
       </button>
       <img [src]="'../../../assets/img/meals/' + meal?.imgUrl" alt="Meal Image" class="img-fluid mb-3">
