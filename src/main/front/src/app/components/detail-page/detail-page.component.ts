@@ -56,9 +56,18 @@ export class DetailPageComponent implements OnInit {
       console.error('Invalid mealId');
     }
   }
-  
+
   goToMainPage(): void {
     const route = (this.fromRoute === 'admin') ? '/admin' : '';
     this.router.navigate([route]);
+  }
+  deleteMeal() {
+    const mealId = this.meal?.id;
+    if (mealId !== undefined) {
+      this.mealsService.deleteMeal(mealId).subscribe(() => {
+        const route = (this.fromRoute === 'admin') ? '/admin' : '';
+        this.router.navigate([route]);
+      });
+    }
   }
 }

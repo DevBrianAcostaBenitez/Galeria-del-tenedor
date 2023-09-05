@@ -14,7 +14,15 @@ export class AdminTableComponent implements OnInit {
   ngOnInit(): void {
     this.mealsService.getAllMeals().subscribe((data) => {
       this.meals = data;
+      console.log(this.meals)
     });
+  }
+  deleteMeal(mealId: number) {
+    if (mealId !== undefined) {
+      this.mealsService.deleteMeal(mealId).subscribe(() => {
+        this.meals = this.meals.filter(meal => meal.id !== mealId);
+      });
+    }
   }
 
 }

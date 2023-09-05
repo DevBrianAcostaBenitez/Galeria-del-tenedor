@@ -5,7 +5,7 @@
       <button  *ngIf="fromRoute === 'admin'" class=" px-2 mx-1 pb-1  rounded-pill border border-dark fw-bold" title="Editar">
         <i class="bi bi-pencil" style="font-size: 1.4rem;"></i>
       </button>
-      <button  *ngIf="fromRoute === 'admin'" class=" px-2 mx-1 pb-1 rounded-pill border border-dark fw-bold delete" title="Eliminar">
+      <button   *ngIf="fromRoute === 'admin' && meal?.id !== undefined  "   (click)="deleteMeal()" class=" px-2 mx-1 pb-1 rounded-pill border border-dark fw-bold delete" title="Eliminar">
         <i class="bi bi-trash" style="font-size: 1.4rem;"></i>
       </button>
       <img [src]="'../../../assets/img/meals/' + meal?.imgUrl" alt="Meal Image" class="img-fluid mb-3">
