@@ -18,23 +18,25 @@ section{
     }
     button{
         background-color: #F4F47B;
+        button:hover {
+            background-color: #f4dd89;
+            i{
+                background-color: #f4dd89;
+            }
+        }
     }
     .delete{
         background-color: #f47f7b;
         i{
             background-color: #f47f7b;
         }
-    }
-    button:hover {
-        background-color: #f4dd89;
-        i{
-            background-color: #f4dd89;
-        }
-    }
-    .delete:hover{
-        background-color: #dd3f3a;
-        i{
+        .delete:hover{
             background-color: #dd3f3a;
+            i{
+                background-color: #dd3f3a;
+            }
         }
     }
+   
+    
 }

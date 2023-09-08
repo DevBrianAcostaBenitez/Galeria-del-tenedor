@@ -42,9 +42,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  isMainPage(): boolean {
-    return this.router.url === '/main-page';
-  }
+  
 
   subscribeToCategoryChanges(): void {
     this.mealFilterService.selectedCategory$
@@ -62,9 +60,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
         takeUntil(this.ngUnsubscribe)
       )
       .subscribe((event: NavigationEnd) => {
-        if (this.isMainPage()) {
           this.applyFilter();
-        }
       });
   }
 

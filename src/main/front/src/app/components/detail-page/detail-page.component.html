@@ -2,7 +2,7 @@
   <div class="row  m-3">
     <div class="col-md-3 ">
       <button class="mb-3 px-5 py-2 rounded-pill border border-dark fw-bold" (click)="goToMainPage()">Volver</button>
-      <button  *ngIf="fromRoute === 'admin'" class=" px-2 mx-1 pb-1  rounded-pill border border-dark fw-bold" title="Editar">
+      <button  *ngIf="fromRoute === 'admin'"  [routerLink]="['/admin/editMeal', meal?.id]" class=" px-2 mx-1 pb-1  rounded-pill border border-dark fw-bold" title="Editar">
         <i class="bi bi-pencil" style="font-size: 1.4rem;"></i>
       </button>
       <button   *ngIf="fromRoute === 'admin' && meal?.id !== undefined  "   (click)="deleteMeal()" class=" px-2 mx-1 pb-1 rounded-pill border border-dark fw-bold delete" title="Eliminar">
