@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { MealFilterService } from '../../../services/Meal_filter/meal-filter.service';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-header',
