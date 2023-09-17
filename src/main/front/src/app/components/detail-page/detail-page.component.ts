@@ -44,11 +44,9 @@ export class DetailPageComponent implements OnInit {
     if (mealId !== undefined) {
       this.mealsService.getMealById(mealId).subscribe(meal => {
         this.meal = meal;
-        console.log(this.meal);
         if (meal.type !== null && meal.type?.id !== undefined) {
           this.typeService.getTypeById(meal.type?.id).subscribe(type => {
             this.mealType = type!;
-            console.log(this.mealType);
           });
         }
       });

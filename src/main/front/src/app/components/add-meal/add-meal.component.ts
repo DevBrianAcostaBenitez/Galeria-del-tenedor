@@ -83,7 +83,6 @@ export class AddMealComponent implements OnInit {
       ? (() => {
           this.mealData.type = this.selectedType;
           this.mealData.imgUrl = this.imgUrl;
-          console.log('Meal Data:', this.mealData);
           this.mealsService.saveMeal(this.mealData).subscribe(
             () => {
               this.router.navigate(['/admin']);

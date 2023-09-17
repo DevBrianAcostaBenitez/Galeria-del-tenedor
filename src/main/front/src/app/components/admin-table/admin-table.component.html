@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let meal of meals">
+                <tr *ngFor="let meal of filteredMeals">
                     <td class="col">{{ meal.name }}</td>
                     <td class="col">{{ meal.type?.name }}</td>
                     <td class="col-6">{{ meal.ingredients }}</td>

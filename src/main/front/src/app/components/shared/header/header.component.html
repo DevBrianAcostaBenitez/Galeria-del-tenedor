@@ -4,6 +4,9 @@
       <i class="bi bi-list mx-3 icon" (click)="toggleCategoryDropdown()"></i>
       <h1 class="mx-3 mt-2 text" style="text-decoration: underline">La Galeria del Tenedor</h1>
     </div>
+    <button [routerLink]="adminLink" title="change View" class="px-1 mx-1 rounded-pill border border-dark fw-bold ">
+      <p>{{ changeViewText }}</p>
+    </button> 
   </div>
   <div id="nav" *ngIf="CategoryDropdown" class="dropdown-content position-absolute option-list" style="left: 0.5%;">
     <div class="category-item" (click)="navigateToMainPageAndFilter(null)">
