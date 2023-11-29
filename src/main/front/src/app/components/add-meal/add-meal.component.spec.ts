@@ -10,7 +10,7 @@ describe('AddMealComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [AddMealComponent],
-      imports: [HttpClientTestingModule,FormsModule, RouterModule],
+      imports: [HttpClientTestingModule,FormsModule, RouterModule.forRoot([])],
     });
     fixture = TestBed.createComponent(AddMealComponent);
     component = fixture.componentInstance;

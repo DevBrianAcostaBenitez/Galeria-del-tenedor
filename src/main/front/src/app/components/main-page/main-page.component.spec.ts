@@ -26,7 +26,7 @@ describe('MainPageComponent', () => {
       providers: [
         { provide: MealsService, useValue: mockMealsService },
         { provide: MealFilterService, useValue: mockMealFilterService },
-        { provide: Router, useValue: mockRouter }, // Proporcionar el mock del Router
+        { provide: Router, useValue: mockRouter }, 
       ],
     });
     fixture = TestBed.createComponent(MainPageComponent);
