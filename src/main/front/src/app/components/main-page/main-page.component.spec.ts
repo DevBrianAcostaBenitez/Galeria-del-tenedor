@@ -13,7 +13,7 @@ describe('MainPageComponent', () => {
   };
 
   const mockMealFilterService = {
-    selectedCategory$: of('SomeCategory'),
+    selectedCategory$: of('Postres'),
   };
 
   const mockRouter = {
