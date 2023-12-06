@@ -97,13 +97,11 @@ describe('DetailPageComponent', () => {
   it('should delete meal and navigate to main page when deleteMeal is called', () => {
     const deleteMealSpy = spyOn(mockMealsService, 'deleteMeal').and.returnValue(of({}));
     component.meal = { id: 1, name: "name", ingredients: "ingredient", recipe: "recipe" }
+    component.fromRoute = 'admin';
     component.deleteMeal();
-    expect(deleteMealSpy).toHaveBeenCalledWith(1); 
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['/admin']);
     
+    expect(deleteMealSpy).toHaveBeenCalledWith(1);
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/admin']);
   });
-  
-  
-  
 
 });

@@ -73,8 +73,6 @@ describe('EditMealComponent', () => {
     component = fixture.componentInstance;
   });
   
-  
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -124,10 +122,6 @@ describe('EditMealComponent', () => {
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/admin']);
   });
   
-  
-  
-  
-
   it('should show an alert if form is not valid', () => {
     const alertSpy = spyOn(window, 'alert');
 

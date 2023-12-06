@@ -92,6 +92,4 @@ describe('AddMealComponent', () => {
     expect(saveMealSpy).not.toHaveBeenCalled();
   });
   
-  
-
 });
