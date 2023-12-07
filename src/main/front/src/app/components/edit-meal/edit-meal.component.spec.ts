@@ -73,8 +73,6 @@ describe('EditMealComponent', () => {
     component = fixture.componentInstance;
   });
   
-  
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -96,7 +94,7 @@ describe('EditMealComponent', () => {
     const mealsService = TestBed.inject(MealsService);
   
     const updatedMeal: Meals = {
-      id: 1, 
+      id: 1,
       name: 'Updated Test Meal',
       type: {
         id: 6,
@@ -114,16 +112,16 @@ describe('EditMealComponent', () => {
       name: 'Type 2',
     } as Types;
     component.mealData.name = 'Updated Test Meal';
+    component.mealData.ingredients = 'Updated Ingredients';
+    component.mealData.recipe = 'Updated Recipe';
   
     component.editMeal();
   
-    expect(component.mealData).toEqual(updatedMeal);
+    expect(updateMealSpy).toHaveBeenCalledWith(1, component.mealData);
   
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/admin']);
   });
   
-  
-
   it('should show an alert if form is not valid', () => {
     const alertSpy = spyOn(window, 'alert');
 

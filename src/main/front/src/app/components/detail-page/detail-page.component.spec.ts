@@ -6,7 +6,6 @@ import { MealsService } from '../../services/Meals.service';
 import { TypeService } from '../../services/Types.service';
 import { Meals } from '../../models/Meals.model';
 import { Types } from '../../models/Types.model';
-
 describe('DetailPageComponent', () => {
   let component: DetailPageComponent;
   let fixture: ComponentFixture<DetailPageComponent>;
@@ -41,7 +40,7 @@ describe('DetailPageComponent', () => {
       recipe: 'Test Recipe',
       imgUrl: 'test-image.jpg',
     } as Meals),
-    deleteMeal: () => of({}), 
+      deleteMeal: (mealId: number) => of({}), 
   };
 
   const mockTypeService = {
@@ -65,6 +64,9 @@ describe('DetailPageComponent', () => {
     fixture = TestBed.createComponent(DetailPageComponent);
     component = fixture.componentInstance;
   });
+  afterEach(() => {
+    mockRouter.navigate.calls.reset();
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -83,18 +85,23 @@ describe('DetailPageComponent', () => {
     expect(loadTypeSpy).toHaveBeenCalledWith(1);
   });
 
+  afterEach(() => {
+    jasmine.createSpy('navigate').and.stub(); // Restaurar el espía navigate
+  });
+  
   it('should navigate to main page when goToMainPage is called', () => {
     component.goToMainPage();
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['']); 
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['']);
   });
-  
+
   it('should delete meal and navigate to main page when deleteMeal is called', () => {
-    const deleteMealSpy = spyOn(mockMealsService, 'deleteMeal').and.callThrough();
-  
+    const deleteMealSpy = spyOn(mockMealsService, 'deleteMeal').and.returnValue(of({}));
+    component.meal = { id: 1, name: "name", ingredients: "ingredient", recipe: "recipe" }
+    component.fromRoute = 'admin';
     component.deleteMeal();
-  
-    expect(deleteMealSpy).toHaveBeenCalled();
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['admin']); 
+    
+    expect(deleteMealSpy).toHaveBeenCalledWith(1);
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/admin']);
   });
-  
+
 });
